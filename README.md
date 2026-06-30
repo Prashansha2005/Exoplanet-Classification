@@ -75,7 +75,6 @@ The project includes:
 * Missing Value Analysis
 * Correlation Heatmap
 * ROC Curve Comparison
-* Feature Importance
 * Classification Report
 
 ---
