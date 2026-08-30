@@ -851,7 +851,8 @@ if uploaded_file:
       st.session_state.output = None
       
     if button: 
-                        
+                        st.write("BUTTON VALUE:", button)
+                        st.write("UPLOADED FILE:", uploaded_file is not None)
                         files={"file":(uploaded_file.name,uploaded_file.getvalue(),uploaded_file.type)}
                         try:
                           with st.spinner("Sending to API.."):
