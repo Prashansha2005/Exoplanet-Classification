@@ -855,7 +855,7 @@ if uploaded_file:
                         files={"file":(uploaded_file.name,uploaded_file.getvalue(),uploaded_file.type)}
                         try:
                           with st.spinner("Sending to API.."):
-                                response=requests.post(api_url,files=files)
+                                response = requests.post(f"{api_url}/predict", files=files)
                                 if response.status_code==200:
                                       st.info("API received the CSV successfully")
                                       output= response.json()
