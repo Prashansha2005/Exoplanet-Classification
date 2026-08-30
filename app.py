@@ -845,19 +845,16 @@ if uploaded_file:
     st.caption("prediction for the csv file uploaded...")
     
     api_url = os.getenv("API_URL", "http://localhost:8080")
-    button=st.button("Send to API for prediction")
+    button_prediction =st.button("Send to API for prediction")
     list_of_missing_columns=st.session_state.missing_columns
     if "output" not in st.session_state:
       st.session_state.output = None
       
-    if button and uploaded_file is not None: 
-                        st.write("BUTTON VALUE:", button)
-                        st.write("UPLOADED FILE:", uploaded_file is not None)
+    if button_prediction: 
+                        st.session_state.output = None
                         files={"file":(uploaded_file.name,uploaded_file.getvalue(),uploaded_file.type)}
                         try:
                           with st.spinner("Sending to API.."):
-                                st.write("API URL:", api_url)
-                                st.write("Request URL:", f"{api_url}/predict")
                                 response = requests.post(f"{api_url}/predict", files=files)
                                 if response.status_code==200:
                                       st.info("API received the CSV successfully")
