@@ -855,6 +855,8 @@ if uploaded_file:
                         files={"file":(uploaded_file.name,uploaded_file.getvalue(),uploaded_file.type)}
                         try:
                           with st.spinner("Sending to API.."):
+                                st.write("API URL:", api_url)
+                                st.write("Request URL:", f"{api_url}/predict")
                                 response = requests.post(f"{api_url}/predict", files=files)
                                 if response.status_code==200:
                                       st.info("API received the CSV successfully")
