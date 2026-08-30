@@ -10,7 +10,7 @@ import joblib
 import hashlib
 import io
 from pathlib import Path
-
+import os
 
 # ============================================================
 # PAGE CONFIG
@@ -843,7 +843,8 @@ if uploaded_file:
 
     st.subheader("🔍Time to predict!")
     st.caption("prediction for the csv file uploaded...")
-    api_url = "http://api:8080/predict"
+    
+    api_url = os.getenv("API_URL", "http://localhost:8080")
     button=st.button("Send to API for prediction")
     list_of_missing_columns=st.session_state.missing_columns
     if "output" not in st.session_state:
