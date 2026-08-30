@@ -1,0 +1,9 @@
+pandas==2.3.1
+numpy==2.2.6
+pyarrow==24.0.0
+streamlit==1.60.0
+plotly==6.9.0
+requests==2.32.4
+seaborn==0.13.2
+matplotlib==3.10.3
+joblib==1.5.3

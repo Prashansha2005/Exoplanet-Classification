@@ -1,0 +1,17 @@
+services:
+
+  api:
+    build:
+      context: .
+      dockerfile: docker_work/dockerfile
+    ports:
+      - "8080:8080"
+
+  streamlit:
+    build:
+      context: .
+      dockerfile: docker_work_streamlit/dockerfile
+    ports:
+      - "8501:8501"
+    depends_on:
+      - api
